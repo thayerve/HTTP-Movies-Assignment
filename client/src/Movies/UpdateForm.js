@@ -49,6 +49,7 @@ export default function UpdateForm(props) {
             .then(res => {
                 console.log('PUT response: ', res.data);
                 props.history.push('/');
+                // need to update this movie in the app state that's then rendered in the movie list
             })
             .catch(err => console.log(err.response));
 
