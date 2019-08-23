@@ -15,7 +15,7 @@ const App = () => {
 
   const updateMovie = movie => {
     console.log("updateMovie function has run")
-    setMovies()
+    setMovies([...movies, movie]);
   }
 
   return (
@@ -31,7 +31,7 @@ const App = () => {
       <Route
         path="/update-movie/:id"
         render={props => {
-          return <UpdateForm {...props} updateMovie={updateMovie} />;
+          return <UpdateForm {...props} movies={movies} updateMovie={updateMovie} />;
         }}
       />
     </>

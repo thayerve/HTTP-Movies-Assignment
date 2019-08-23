@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
-
 export default function UpdateForm(props) {
     console.log('UpdateForm rendered');
     const id = props.match.params.id;
@@ -45,15 +43,12 @@ export default function UpdateForm(props) {
         // };
         // ^ WIP trying to make movie.stars back into an array after editing
         axios
-            .put('http://localhost:5000/api/movies/${id}', movie)
+            .put(`http://localhost:5000/api/movies/${id}`, movie)
             .then(res => {
                 console.log('PUT response: ', res.data);
                 props.history.push('/');
-                // need to update this movie in the app state that's then rendered in the movie list
             })
             .catch(err => console.log(err.response));
-
-        
     }
 
     return (
@@ -86,8 +81,7 @@ export default function UpdateForm(props) {
                 placeholder="Stars"
                 value={movie.stars}
             />
-
-            <button>Submit</button>
+            <button>Update this movie</button>
         </form>
     );
 }
